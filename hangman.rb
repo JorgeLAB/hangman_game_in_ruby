@@ -2,7 +2,7 @@ def give_welcome
 	puts "Welcome to the hangman game!"
 	puts "What your name, my dear ?"
 	name = gets.strip
-	puts "\n\n\n\n\n\n"
+	puts "\n\n\n"
 	puts "We are start the game for you, #{name}"
 	name
 end
@@ -33,17 +33,11 @@ def play(name)
 		kick_one_letter = kick.size == 1
 		
 		if kick_one_letter
-			total_find = 0
 
-			for i in 0..(secret_word.size - 1)
-				letter = secret_word[i]
-				if kick == letter
-					total_find += 1
-				end
-			end 
+			count_letters = secret_word.count(kick)
 
-			if total_find > 0 
-				puts "It was found #{total_find} letters." 
+			if count_letters > 0 
+				puts "It was found letter \"#{kick}\" #{count_letters} times." 
 			else
 				puts "The letter was not found."
 				errors += 1
@@ -72,7 +66,7 @@ def play(name)
 end
 
 def give_one_kick(kicks, errors)
-	puts "\n\n\n\n\n"
+	puts "\n\n"
 	puts "Errors until now: #{ errors }"
 	puts "Kicks until now: #{ kicks }"
 	puts "Entry with one letter"
