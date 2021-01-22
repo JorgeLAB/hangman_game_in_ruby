@@ -28,9 +28,12 @@ def play(name)
 	points_until_now = 0
 
 	while errors < 5
+		
 		kick = give_one_kick kicks, errors
 
 		kick_one_letter = kick.size == 1
+
+		next if kick_repeat kick, kicks
 		
 		if kick_one_letter
 
@@ -58,11 +61,18 @@ def play(name)
 			end
 		
 		end	
-		kicks << kick
-	
+
+		kicks << kick	
 	end
 
 	puts "You receive #{ points_until_now } points."
+end
+
+def kick_repeat(kick, kicks)
+	if kicks.include? kick
+		puts "The kick was repeat." 
+		true
+	end
 end
 
 def give_one_kick(kicks, errors)
