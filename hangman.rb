@@ -6,6 +6,7 @@ def play(name)
   points_until_now = 0
 
   while errors < 5
+    secret_word_masked(kicks, secret_word)
 
     kick = give_one_kick_valid kicks, errors
 
@@ -36,6 +37,7 @@ def play(name)
       end
 
     end
+
     kicks << kick
   end
   result_game points_until_now
@@ -53,4 +55,10 @@ def give_one_kick_valid(kicks, errors)
     end
   end
 
+end
+
+def secret_word_masked(kicks, secret_word)
+  word_maked = secret_word.chars.map {|letter| (kicks.include? letter)? letter : "_" }
+  word_maked_result = word_maked.join(" ")
+  secret_word_masked_print(word_maked_result)
 end

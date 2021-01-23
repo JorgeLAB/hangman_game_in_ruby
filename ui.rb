@@ -53,3 +53,7 @@ end
 def repeated_letter_response
   puts "The kick was repeat."
 end
+
+def secret_word_masked_print(word_masked )
+  puts word_masked
+end
