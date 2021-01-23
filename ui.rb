@@ -38,7 +38,7 @@ def letter_not_found
   puts "The letter was not found."
 end
 
-def letter_found kick count_letters
+def letter_found(kick, count_letters)
   puts "It was found letter \"#{kick}\" #{count_letters} times."
 end
 

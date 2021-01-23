@@ -1,3 +1,6 @@
+require_relative "hangman"
+require_relative "ui"
+
 name = give_welcome
 
 loop do
